@@ -16,7 +16,7 @@ const API = axios.create({
 export const getTimestamps = async () => {
     try {
 
-        const res = await API.get("/");
+        const res = await API.get("");
         return res.data;
 
 
@@ -32,7 +32,7 @@ export const getTimestamps = async () => {
 export const createTimestamp = async (title) => {
     try {
 
-        const res = await API.post("/", { title });
+        const res = await API.post("", { title });
         return res.data;
 
 
@@ -47,7 +47,7 @@ export const createTimestamp = async (title) => {
 // Start new session
 export const startSession = async (id) => {
     try {
-        const res = await API.post(`/${id}/start`);
+        const res = await API.post(`${id}/start`);
         return res.data;
     } catch (error) {
 
@@ -60,7 +60,7 @@ export const startSession = async (id) => {
 // Stop session
 export const stopSession = async (timeseriesId) => {
     try {
-        const res = await API.put(`/timeseries/${timeseriesId}/stop`);
+        const res = await API.put(`timeseries/${timeseriesId}/stop`);
         return res.data;
     } catch (error) {
 
@@ -72,7 +72,7 @@ export const stopSession = async (timeseriesId) => {
 // Delete timestamp
 export const deleteTimestamp = async (id) => {
     try {
-        const res = await API.delete(`/${id}`);
+        const res = await API.delete(`${id}`);
         return res.data;
     } catch (error) {
 
