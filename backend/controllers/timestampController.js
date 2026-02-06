@@ -57,11 +57,10 @@ const getAllTimestamps = async (req, res) => {
       .populate("timeseries")
       .sort({ createdAt: -1 });
 
-    if (!timestamps || timestamps.length === 0) {
-      return res.status(404).json({ message: "No Timestamps found" });
-    }
+    res.status(200).json({
+      timestamps: timestamps || []
+    });
 
-    res.status(200).json({ timestamps });
 
   } catch (error) {
     console.error(error.message);

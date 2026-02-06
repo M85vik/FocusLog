@@ -15,8 +15,10 @@ export default function Dashboard() {
   const loadData = async () => {
     const data = await getTimestamps();
 
-    if (data.timestamps) {
+    if (data && data.timestamps) {
       setTimestamps(data.timestamps);
+    } else {
+      setTimestamps([]);
     }
   };
 
@@ -33,10 +35,10 @@ export default function Dashboard() {
   };
 
   return (
-        <div className="min-h-screen p-4 w-full max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-7xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900 to-black">
+    <div className="min-h-screen p-4 w-full max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-7xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900 to-black">
       {/* Header */}
       <h1 className="text-2xl font-bold mb-4 text-center">
-      Time Tracker
+        Time Tracker
       </h1>
 
       {/* Create */}
@@ -67,6 +69,13 @@ export default function Dashboard() {
             refresh={loadData}
           />
         ))}
+
+
+        {timestamps.length === 0 && (
+          <p className="text-center text-white mt-6">
+            No tasks yet. Create one 👆
+          </p>
+        )}
       </div>
 
     </div>
