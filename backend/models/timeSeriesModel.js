@@ -1,5 +1,6 @@
 import {model, Schema} from 'mongoose'
 
+// 1. Make Schema 
 
 const timeseriesSchema = new Schema(
     {
@@ -17,6 +18,9 @@ const timeseriesSchema = new Schema(
         }
     }
 )
+
+
+// make model
 
 
 const Timeseries = model("Timeseries", timeseriesSchema);

@@ -38,7 +38,7 @@ export default function Dashboard() {
     <div className="min-h-screen p-4 w-full max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-7xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900 to-black">
       {/* Header */}
       <h1 className="text-2xl font-bold mb-4 text-center">
-        Time Tracker
+        FocusLog
       </h1>
 
       {/* Create */}
