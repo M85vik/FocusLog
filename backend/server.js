@@ -4,6 +4,7 @@ import { mongoDBConnect } from './config/mongoDBConnect.js';
 import express from 'express'
 import cors from 'cors'
 import timestampRoutes from "./routes/timestampRoutes.js"
+console.log("Timestamp routes imported:", timestampRoutes);
 await mongoDBConnect();
 
 const app = express();
