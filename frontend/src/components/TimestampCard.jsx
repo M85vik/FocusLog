@@ -4,7 +4,9 @@ import {
   deleteTimestamp
 } from "../services/api";
 
-export default function TimestampCard({ data, refresh }) {
+export default function TimestampCard({ data, refresh, onOpenGraph }) {
+
+
 
   const activeSession = data.timeseries.find(
     (t) => !t.endTime
@@ -69,6 +71,14 @@ export default function TimestampCard({ data, refresh }) {
           X
         </button>
 
+
+        <button
+          onClick={() => onOpenGraph(data)}
+          className="bg-gray-700 hover:bg-gray-600 px-3 rounded transition"
+        >
+          📊
+        </button>
+
       </div>
 
       {/* Sessions */}
@@ -94,7 +104,11 @@ export default function TimestampCard({ data, refresh }) {
 
       </div>
 
-      </div>
-  
+
+
+    </div>
+
+
+
   );
 }
