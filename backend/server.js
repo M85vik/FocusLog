@@ -4,7 +4,7 @@ import { mongoDBConnect } from './config/mongoDBConnect.js';
 import express from 'express'
 import cors from 'cors'
 import timestampRoutes from "./routes/timestampRoutes.js"
-console.log("Timestamp routes imported:", timestampRoutes);
+
 await mongoDBConnect();
 
 const app = express();
@@ -17,12 +17,12 @@ app.use(cors())
 app.use(express.json());
 
 // Routes
+app.get("/", (req,res)=>{
+  res.send("I'm alive 😀...")
+})
 app.use("/api/timestamp", timestampRoutes);
 
-// Test route
-app.get("/", (req, res) => {
-  res.send("API Running...");
-});
+
 
 app.listen(PORT, ()=>{
     console.log(`Server is listening at http://localhost:${PORT}`);
